@@ -1,0 +1,76 @@
+<table class="table-custom">
+    <tr>
+        <td class="td-custom">
+            <mat-form-field>
+                <mat-label>Filter Topic</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. topic">
+            </mat-form-field>
+        </td>
+    </tr>
+</table>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Checkbox Publish Column -->
+        <ng-container matColumnDef="selectPublish">
+            <th mat-header-cell *matHeaderCellDef class="select-publish">
+                <mat-checkbox (change)="$event ? masterTogglePublish() : null"
+                    [checked]="selectionPublish.hasValue() && isAllSelectedPublish()"
+                    [indeterminate]="selectionPublish.hasValue() && !isAllSelectedPublish()"
+                    [aria-label]="checkboxLabelPublish()" color="primary">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selectionTogglePublish(row) : null"
+                    [checked]="selectionPublish.isSelected(row)" [aria-label]="checkboxLabelPublish(row)"
+                    color="primary">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="publish">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Publish </th>
+            <td mat-cell *matCellDef="let element" (click)="selectionTogglePublish(element)"> {{element.publish}} </td>
+        </ng-container>
+
+        <!-- Checkbox Subscribe Column -->
+        <ng-container matColumnDef="selectSubscribe">
+            <th mat-header-cell *matHeaderCellDef class="select-subscribe">
+                <mat-checkbox (change)="$event ? masterToggleSubscribe() : null"
+                    [checked]="selectionSubscribe.hasValue() && isAllSelectedSubscribe()"
+                    [indeterminate]="selectionSubscribe.hasValue() && !isAllSelectedSubscribe()"
+                    [aria-label]="checkboxLabelSubscribe()" color="primary">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row" class="select-subscribe-row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selectionToggleSubscribe(row) : null"
+                    [checked]="selectionSubscribe.isSelected(row)" [aria-label]="checkboxLabelSubscribe(row)"
+                    color="primary">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+
+        <!-- Subscribe Column -->
+        <ng-container matColumnDef="subscribe">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Subscribe </th>
+            <td mat-cell *matCellDef="let element" (click)="selectionToggleSubscribe(element)"> {{element.subscribe}}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<table class="table-button">
+    <tr>
+        <td class="td-custom">
+            <button mat-raised-button color="primary" class="custom-button" (click)="openAddTopicDialog()">Add Topic</button>
+            <button mat-raised-button color="primary" class="custom-button" (click)="openDeleteTopicDialog()">Delete Topic</button>
+        </td>
+        <td style="text-align: right;">
+            <button mat-raised-button color="primary" (click)="downloadConfiguration()">Download Configuration</button>
+        </td>
+    </tr>
+</table>

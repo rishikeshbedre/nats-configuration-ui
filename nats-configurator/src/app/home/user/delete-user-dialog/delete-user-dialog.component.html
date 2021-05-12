@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Delete User</h1>
+<h3 class="dialog-content-title">Users selected for Deletion:</h3>
+<mat-dialog-content>
+
+<ul class="dialog-list" *ngFor="let row of data">
+    <li>{{row.user}}</li>
+</ul> 
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button class="mat-raised-button" mat-dialog-close>Cancel</button>
+    <button class="mat-raised-button mat-primary" cdkFocusInitial (click)="deleteuser()">Delete</button>
+</mat-dialog-actions>

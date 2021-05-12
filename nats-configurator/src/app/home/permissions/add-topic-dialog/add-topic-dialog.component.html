@@ -1,0 +1,61 @@
+<h1 mat-dialog-title>Add Topic</h1>
+<h3 class="dialog-content-title">Add Topic for user: {{data[0].user}}</h3>
+<form [formGroup]="addTopicForm">
+    <mat-dialog-content>
+        <div class="addtopic-view">
+            <div class="topic-input">
+                <div class="input-view">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Publish Topic</mat-label>
+                        <input type="text" placeholder="Publish Topic" aria-label="pTopic" matInput
+                            formControlName="publishTopic" [matAutocomplete]="publishauto">
+                        <mat-autocomplete #publishauto="matAutocomplete">
+                            <mat-option *ngFor="let topic of filteredPublishTopics | async" [value]="topic">
+                                {{topic}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="button-view">
+                    <button mat-mini-fab color="primary" (click)="addpublishTopic()">+</button>
+                </div>
+            </div>
+            <div class="topic-view">
+                <h3 class="dialog-content-title" style="text-align: center">Publish Topic</h3>
+                <ul class="dialog-list" *ngFor="let element of publishArray">
+                    <li>{{element}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="addtopic-view">
+            <div class="topic-input">
+                <div class="input-view" style="margin-left: 1.8vh;">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Subscribe Topic</mat-label>
+                        <input type="text" placeholder="Subscribe Topic" aria-label="sTopic" matInput
+                            formControlName="subscribeTopic" [matAutocomplete]="subscribeauto">
+                        <mat-autocomplete #subscribeauto="matAutocomplete">
+                            <mat-option *ngFor="let topic of filteredSubscribeTopics | async" [value]="topic">
+                                {{topic}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="button-view">
+                    <button mat-mini-fab color="primary" (click)="addsubscribeTopic()">+</button>
+                </div>
+            </div>
+            <div class="topic-view">
+                <h3 class="dialog-content-title" style="text-align: center">Subscribe Topic</h3>
+                <ul class="dialog-list" *ngFor="let element of subscribeArray">
+                    <li>{{element}}</li>
+                </ul>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button class="mat-raised-button" mat-dialog-close>Cancel</button>
+        <button class="mat-raised-button mat-primary" cdkFocusInitial (click)="addtopic()">Add</button>
+    </mat-dialog-actions>
+</form>

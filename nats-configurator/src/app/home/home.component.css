@@ -1,0 +1,35 @@
+::ng-deep .style-success {
+    background-color: whitesmoke;
+    color: indigo;
+    width: fit-content;
+}
+
+::ng-deep .mat-simple-snackbar {
+    font-size: 1.8vh;
+    min-height: 2vh;
+}
+
+::ng-deep .mat-simple-snackbar-action .mat-button {
+    font-size: 1.8vh;
+}
+
+::ng-deep .style-success .mat-simple-snackbar-action {
+    color: black;
+}
+  
+::ng-deep .style-error {
+    background-color: whitesmoke;
+    color: red;
+    width: fit-content;
+}
+
+::ng-deep .style-error .mat-simple-snackbar-action {
+    color: black;
+}
+
+.mat-progress-spinner {
+    top: 45vh;
+    bottom: 45vh;
+    right: 45vw;
+    left: 45vw;
+}

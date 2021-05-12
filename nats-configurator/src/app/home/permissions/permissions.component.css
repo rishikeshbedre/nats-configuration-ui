@@ -1,0 +1,70 @@
+.mat-raised-button {
+    margin-top: 1vw;
+    width: fit-content;
+    font-size: 1.8vh;
+}
+
+.custom-button {
+    margin-right: 1vw;
+}
+
+.mat-form-field {
+    width: 65vw;
+    font-size: 2.0vh;
+}
+
+.td-custom{
+    text-align: left;
+}
+
+.table-button{
+    width: 65vw;
+}
+
+.mat-table{
+    width: 65vw
+}
+
+.mat-elevation-z8 {
+    height: 53.5vh;
+    overflow-y: scroll;
+}
+
+.mat-header-cell{
+    font-size: 2.0vh;
+    font-weight: bold;
+    text-align: center;
+    border-right: 2px solid whitesmoke;
+}
+
+.mat-cell{
+    font-size: 1.8vh;
+    text-align: left;
+    border-right: 2px solid whitesmoke;
+    padding-left: 1vh;
+}
+
+td.mat-cell:hover {
+    background-color: #eeeeee;
+}
+
+:host ::ng-deep .mat-sort-header-container { 
+    display: flex;  
+    justify-content: center; 
+}
+
+.select-publish {
+    text-align: left;
+    width: 2.5vw;
+}
+
+.select-subscribe {
+    text-align: left;
+    padding-left: 1.5vw;
+    width: 2.2vw;
+}
+
+.select-subscribe-row {
+    width: 2.2vw;
+    padding-left: 1.5vw;
+}

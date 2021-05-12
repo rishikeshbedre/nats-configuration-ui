@@ -1,0 +1,20 @@
+.mat-dialog-title {
+    font-size: 3.0vh;
+    padding-bottom: 1.5vh;
+}
+
+.mat-dialog-content {
+    width: 25vw;
+    height: 21vh;
+}
+
+.mat-form-field {
+    width: 24vw;
+    font-size: 1.8vh;
+}
+
+.mat-raised-button {
+    margin-right: 1vw;
+    width: fit-content;
+    font-size: 1.8vh;
+}

@@ -1,0 +1,11 @@
+<mat-progress-spinner mode="indeterminate" color="primary" *ngIf=this.spinnerservice.isWait></mat-progress-spinner>
+<div *ngIf=!this.spinnerservice.isWait>
+    <mat-grid-list cols="3" rowHeight="90vh">
+        <mat-grid-tile [colspan]="1" [rowspan]="1" style="background: whitesmoke;">
+            <app-user></app-user>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1" style="background: whitesmoke;">
+            <app-permissions></app-permissions>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

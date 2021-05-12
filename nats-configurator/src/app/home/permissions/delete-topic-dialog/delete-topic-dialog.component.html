@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Delete Topic</h1>
+<h3 class="dialog-content-title">Delete Topic for user: {{data.user}}</h3>
+
+<mat-dialog-content>
+    <div class="topic-view">
+        <h3 class="dialog-content-title" style="text-align: center">Publish Topic</h3>
+        <div class="scroll-view">
+            <ul class="dialog-list" *ngFor="let element of data.publishtopics">
+                <li>{{element.publish}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="topic-view">
+        <h3 class="dialog-content-title" style="text-align: center">Subscribe Topic</h3>
+        <div class="scroll-view">
+            <ul class="dialog-list" *ngFor="let element of data.subscribetopics">
+                <li>{{element.subscribe}}</li>
+            </ul>
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button class="mat-raised-button" mat-dialog-close>Cancel</button>
+    <button class="mat-raised-button mat-primary" cdkFocusInitial (click)="deleteTopic()">Delete</button>
+</mat-dialog-actions>
